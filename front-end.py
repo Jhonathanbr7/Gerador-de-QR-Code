@@ -5,7 +5,7 @@ from PIL import Image, ImageTk
 
 
 def criaLink():
-    print("Deu certo")
+    print("Deu certo mano")
 
 
 

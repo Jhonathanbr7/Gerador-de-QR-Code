@@ -194,7 +194,8 @@ except Exception as e:
 #Front-end
 
 try:
-    
+    ctk.set_appearance_mode("dark")
+
     janela = ctk.CTk()
 
     largura = janela.winfo_screenwidth()
