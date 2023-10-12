@@ -254,7 +254,7 @@ try:
         dado.grid(row=6,column=0,columnspan=9,sticky="NSWE")
 
 #--------------------------------------------------------------------------------------------------
-        infoT = tk.Label(table,text="Digite o tamanho do QR Code Abaixo (Opicional):", fg='Black', bg='white',font=fonte_personalizada)
+        infoT = tk.Label(table,text="Digite o tamanho do QR Code Abaixo (Opcional):", fg='Black', bg='white',font=fonte_personalizada)
         infoT.grid(row=7, column=0,columnspan=9,sticky="WE")
 
         dadoT = tk.Entry(table)
@@ -335,7 +335,7 @@ try:
         dado.grid(row=6,column=0,columnspan=9,sticky="NSWE")
 
 #--------------------------------------------------------------------------------------------------
-        infoT = tk.Label(table,text="Digite o tamanho do QR Code Abaixo (Opicional):", fg='Black', bg='white',font=fonte_personalizada)
+        infoT = tk.Label(table,text="Digite o tamanho do QR Code Abaixo (Opcional):", fg='Black', bg='white',font=fonte_personalizada)
         infoT.grid(row=7, column=0,columnspan=9,sticky="WE")
 
         dadoT = tk.Entry(table)
@@ -414,7 +414,7 @@ try:
         dado.grid(row=6,column=0,columnspan=9,sticky="NSWE")
 
 #--------------------------------------------------------------------------------------------------
-        infoT = tk.Label(table,text="Digite o tamanho do QR Code Abaixo (Opicional):", fg='Black', bg='white',font=fonte_personalizada)
+        infoT = tk.Label(table,text="Digite o tamanho do QR Code Abaixo (Opcional):", fg='Black', bg='white',font=fonte_personalizada)
         infoT.grid(row=7, column=0,columnspan=9,sticky="WE")
 
         dadoT = tk.Entry(table)
