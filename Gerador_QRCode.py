@@ -391,8 +391,8 @@ try:
         coluna = tk.Label(table,text="", fg='Black', bg='black',font=fonte_personalizada,height=30)
         coluna.grid(row=2, column=9, rowspan=100,sticky="NSEW")
 
-        qrCode = tk.Label(table,text="    QR Code                                      ", bg='Black', fg='white',font=fonte_personalizada,width = 60)
-        qrCode.grid(row=1, column=9,columnspan=100,sticky="WE")
+        qrCode = tk.Label(table,text="QR Code                                      ", bg='Black', fg='white',font=fonte_personalizada,width = 60)
+        qrCode.grid(row=1, column=9,columnspan=60,sticky="WE")
 
         lk = tk.Label(table,text="                         Link....: 'https://www.exemplo.com.br/paginaInicial'", fg='Black', bg='#00FF00',font=fonte_personalizada,height=1,border=0,borderwidth=0)
         lk.grid(row=2, column=0,columnspan=9,sticky="EW")
@@ -428,7 +428,7 @@ try:
         coluna = tk.Label(table,text="", fg='Black', bg='Black',font=fonte_personalizada,height=35, width=1)
         coluna.grid(row=2, column=59,rowspan=15,columnspan=100,sticky="NSEW")
                 
-        gerar = tk.Button(table,text="GERAR QR CODE", command=criaLink,font=fonte_personalizada, fg='Black', bg='white')
+        gerar = tk.Button(table,text="GERAR QR CODE", command=criaLink,font=fonte_personalizada, fg='Black', bg='RED')
         gerar.grid(row=9, column=0, columnspan=9,sticky="NSEW")
 
         diretorio_atual = os.path.dirname(os.path.abspath(__file__))
