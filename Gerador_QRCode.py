@@ -212,50 +212,72 @@ try:
     table.configure(bg="white")
     table.pack(fill='both',pady=10,expand=True)
 
-    linha = tk.Label(table,text="", fg='Black', bg='white',font=fonte_personalizada,width = 155)
-    linha.grid(row=0, column=0,columnspan=7,sticky="NWE")
+    linha = tk.Label(table,text="", fg='Black', bg='purple',font=fonte_personalizada,width = 180)
+    linha.grid(row=0, column=0,columnspan=50,sticky="NWE")
 
 
 
-    formatos = tk.Label(table,text="FORMATOS ABAIXO", fg='Black', bg='white',font=fonte_personalizada,width = 60)
-    formatos.grid(row=1, column=0,sticky="WE")
+    formatos = tk.Label(table,text="FORMATOS ABAIXO", fg='Black', bg='Green',font=fonte_personalizada,width =40)
+    formatos.grid(row=1, column=0,columnspan=9,sticky="WE")
 
 
-    lk = tk.Label(table,text="Link....: 'https://www.exemplo.com.br/paginaInicial'", fg='Black', bg='white',font=fonte_personalizada)
-    lk.grid(row=2, column=0,sticky="W")
+    coluna = tk.Label(table,text="", fg='Black', bg='red',font=fonte_personalizada,height=1,)
+    coluna.grid(row=1, column=9, rowspan=15,sticky="NSEW")
+
+
+    #coluna = tk.Label(table,text="", fg='Black', bg='Blue',font=fonte_personalizada,height=30)
+    #coluna.grid(row=1, column=8, rowspan=100,sticky="NSWE")
+
+    coluna = tk.Label(table,text="", fg='Black', bg='black',font=fonte_personalizada,height=30)
+    coluna.grid(row=2, column=9, rowspan=100,sticky="NSEW")
+
+    qrCode = tk.Label(table,text="QR Code                                      ", bg='Black', fg='white',font=fonte_personalizada,width = 60)
+    qrCode.grid(row=1, column=9,columnspan=50,sticky="WE")
+
+    lk = tk.Label(table,text="                         Link....: 'https://www.exemplo.com.br/paginaInicial'", fg='Black', bg='white',font=fonte_personalizada)
+    lk.grid(row=2, column=0,columnspan=2,sticky="EW")
 
     img_label = tk.Label(table,width=18, height= 8, bg="white")
-    img_label.grid(row=1, column=2, columnspan=15,rowspan=15, sticky="NSWE")
+    img_label.grid(row=2, column=10, columnspan=35,rowspan=15, sticky="NSWE")
 
     wifi = tk.Label(table,text="Wifi....: 'wifi:Nome,Senha'", fg='Black', bg='white',font=fonte_personalizada)
-    wifi.grid(row=3, column=0,sticky="W")
+    wifi.grid(row=3, column=0,columnspan=9,sticky="EW")
 
     whatsapp = tk.Label(table,text="Whatsapp: '1691234567'", fg='Black', bg='white',font=fonte_personalizada)
-    whatsapp.grid(row=4, column=0,sticky="W")
+    whatsapp.grid(row=4, column=0,columnspan=9,sticky="EW")
 
     separator = ttk.Separator(table, orient="horizontal",)
-    separator.grid(row=5, column=0, columnspan=1, sticky="EW")
+    separator.grid(row=5, column=0, columnspan=9, sticky="EW")
 
     info = tk.Label(table,text="Digite a Informação abaixo:", fg='Black', bg='white',font=fonte_personalizada)
-    info.grid(row=6, column=0,sticky="WE")
+    info.grid(row=6, column=0,columnspan=9,sticky="WE")
 
     dado = tk.Entry(table)
-    dado.config(font = fonte_personalizada)
-    dado.grid(row=7,column=0,sticky="NSWE")
+    dado.config(font = fonte_personalizada,bg="Black",fg="White")
+    dado.grid(row=7,column=0,columnspan=9,sticky="NSWE")
 
     separator = ttk.Separator(table, orient="horizontal",)
-    separator.grid(row=8, column=0, columnspan=1, sticky="EW")
+    separator.grid(row=8, column=0, columnspan=9, sticky="EW")
 
     coluna = tk.Label(table,text="", fg='Black', bg='Black',font=fonte_personalizada,height=35, width=1)
-    coluna.grid(row=1, column=30,rowspan=15,sticky="NSEW")
+    coluna.grid(row=2, column=42,rowspan=15,sticky="NSEW")
             
     gerar = tk.Button(table,text="Gerar QR Code", command=criaLink,font=fonte_personalizada, fg='Black', bg='white')
-    gerar.grid(row=9, column=0, sticky="NSEW")
-
+    gerar.grid(row=9, column=0, columnspan=9,sticky="NSEW")
 
 
     separator = ttk.Separator(table, orient="horizontal",)
-    separator.grid(row=10, column=0, columnspan=1, sticky="EW")
+    separator.grid(row=10, column=0, columnspan=9, sticky="EW")
+
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    caminho_imagemStatica = os.path.join(diretorio_atual, 'logos', 'exemplos.png')
+
+    imagemStatica = tk.PhotoImage(file=caminho_imagemStatica)
+
+    imagemS = tk.Label(table, image=imagemStatica, fg='Black', bg='white', height=1, width=10)
+    imagemS.grid(row=10, column=0, columnspan=9, rowspan=7, sticky="NSEW")
+
+   
 
     janela.configure(bg="white")
     janela.mainloop()
