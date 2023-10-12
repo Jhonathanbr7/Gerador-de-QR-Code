@@ -207,7 +207,7 @@ try:
 #-------------------1280x720-----------------------
     if largura <= 1280 and altura <= 720:
         fonte_personalizadaT = ("Arial", int(0.035 * altura))
-        fonte_personalizada = ("Arial", int(0.015 * altura))
+        fonte_personalizada = ("Arial", int(0.015 * altura),'bold')
         fonte_personalizadaI = ("Arial", int(0.080 * altura))
 
         frame = tk.Frame(janela)
@@ -225,7 +225,7 @@ try:
         linha = tk.Label(table,text="", fg='Black', bg='purple',font=fonte_personalizada,width = 180)
         linha.grid(row=0, column=0,columnspan=75,sticky="NWE")
 
-        formatos = tk.Label(table,text="FORMATOS ABAIXO", fg='Black', bg='Green',font=fonte_personalizada,width =40)
+        formatos = tk.Label(table,text="FORMATOS ABAIXO", fg='Black', bg='#00FF00',font=fonte_personalizada,width =40)
         formatos.grid(row=1, column=0,columnspan=9,sticky="WE")
 
         coluna = tk.Label(table,text="", fg='Black', bg='black',font=fonte_personalizada,height=30)
@@ -234,16 +234,16 @@ try:
         qrCode = tk.Label(table,text="    QR Code                                      ", bg='Black', fg='white',font=fonte_personalizada,width = 60)
         qrCode.grid(row=1, column=9,columnspan=60,sticky="WE")
 
-        lk = tk.Label(table,text="                         Link....: 'https://www.exemplo.com.br/paginaInicial'", fg='Black', bg='Grey',font=fonte_personalizada,height=1,border=0,borderwidth=0)
+        lk = tk.Label(table,text="                         Link....: 'https://www.exemplo.com.br/paginaInicial'", fg='Black', bg='#00FF00',font=fonte_personalizada,height=1,border=0,borderwidth=0)
         lk.grid(row=2, column=0,columnspan=9,sticky="EW")
 
         img_label = tk.Label(table,width=18, height= 8, bg="white")
         img_label.grid(row=2, column=20, columnspan=35,rowspan=15, sticky="NSWE")
 
-        wifi = tk.Label(table,text="Wifi....: 'wifi:Nome,Senha'", fg='Black', bg='Grey',font=fonte_personalizada, height=1,border=0,borderwidth=0)
+        wifi = tk.Label(table,text="Wifi....: 'wifi:Nome,Senha'", fg='Black', bg='#00FF00',font=fonte_personalizada, height=1,border=0,borderwidth=0)
         wifi.grid(row=3, column=0,columnspan=9,sticky="EW")
 
-        whatsapp = tk.Label(table,text="Whatsapp: '1691234567'", fg='Black', bg='Grey',font=fonte_personalizada,border=0,borderwidth=0)
+        whatsapp = tk.Label(table,text="Whatsapp: '1691234567'", fg='Black', bg='#00FF00',font=fonte_personalizada,border=0,borderwidth=0)
         whatsapp.grid(row=4, column=0,columnspan=9,sticky="EW")
 
         info = tk.Label(table,text="Digite a Informação abaixo:", fg='Black', bg='white',font=fonte_personalizada)
@@ -254,7 +254,7 @@ try:
         dado.grid(row=6,column=0,columnspan=9,sticky="NSWE")
 
 #--------------------------------------------------------------------------------------------------
-        infoT = tk.Label(table,text="Digite o tamanho do QR Code abaixo:", fg='Black', bg='white',font=fonte_personalizada)
+        infoT = tk.Label(table,text="Digite o tamanho do QR Code Abaixo (Opicional):", fg='Black', bg='white',font=fonte_personalizada)
         infoT.grid(row=7, column=0,columnspan=9,sticky="WE")
 
         dadoT = tk.Entry(table)
@@ -268,7 +268,7 @@ try:
         coluna = tk.Label(table,text="", fg='Black', bg='Black',font=fonte_personalizada,height=35, width=1)
         coluna.grid(row=2, column=63,rowspan=15,columnspan=100,sticky="NSEW")
                 
-        gerar = tk.Button(table,text="GERAR QR CODE", command=criaLink,font=fonte_personalizada, fg='Black', bg='white')
+        gerar = tk.Button(table,text="GERAR QR CODE", command=criaLink,font=fonte_personalizada, fg='Black', bg='RED')
         gerar.grid(row=9, column=0, columnspan=9,sticky="NSEW")
 
         diretorio_atual = os.path.dirname(os.path.abspath(__file__))
@@ -288,7 +288,7 @@ try:
 #-------------------1920x1080----------------------
     elif largura >= 1920 and altura >= 1080:
         fonte_personalizadaT = ("Arial", int(0.035 * altura))
-        fonte_personalizada = ("Arial", int(0.015 * altura))
+        fonte_personalizada = ("Arial", int(0.015 * altura),'bold')
         fonte_personalizadaI = ("Arial", int(0.080 * altura))
 
         frame = tk.Frame(janela)
@@ -306,7 +306,7 @@ try:
         linha = tk.Label(table,text="", fg='Black', bg='purple',font=fonte_personalizada,width = 180)
         linha.grid(row=0, column=0,columnspan=50,sticky="NWE")
 
-        formatos = tk.Label(table,text="FORMATOS ABAIXO", fg='Black', bg='Green',font=fonte_personalizada,width =40)
+        formatos = tk.Label(table,text="FORMATOS ABAIXO", fg='Black', bg='#00FF00',font=fonte_personalizada,width =40)
         formatos.grid(row=1, column=0,columnspan=9,sticky="WE")
 
         coluna = tk.Label(table,text="", fg='Black', bg='black',font=fonte_personalizada,height=30)
@@ -315,16 +315,16 @@ try:
         qrCode = tk.Label(table,text="QR Code                                      ", bg='Black', fg='white',font=fonte_personalizada,width = 60)
         qrCode.grid(row=1, column=9,columnspan=50,sticky="WE")
 
-        lk = tk.Label(table,text="                         Link....: 'https://www.exemplo.com.br/paginaInicial'", fg='Black', bg='Grey',font=fonte_personalizada,height=1,border=0,borderwidth=0)
+        lk = tk.Label(table,text="          Link....: 'https://www.exemplo.com.br/paginaInicial'               ", fg='Black', bg='#00FF00',font=fonte_personalizada,height=1,border=0,borderwidth=0)
         lk.grid(row=2, column=0,columnspan=9,sticky="EW")
 
-        img_label = tk.Label(table,width=18, height= 8, bg="white")
-        img_label.grid(row=2, column=10, columnspan=35,rowspan=15, sticky="NSWE")
+        img_label = tk.Label(table,width=18, height= 8, bg="White")
+        img_label.grid(row=2, column=10, columnspan=29,rowspan=15, sticky="NSWE")
 
-        wifi = tk.Label(table,text="Wifi....: 'wifi:Nome,Senha'", fg='Black', bg='Grey',font=fonte_personalizada, height=1,border=0,borderwidth=0)
+        wifi = tk.Label(table,text="Wifi....: 'wifi:Nome,Senha'", fg='Black', bg='#00FF00',font=fonte_personalizada, height=1,border=0,borderwidth=0)
         wifi.grid(row=3, column=0,columnspan=9,sticky="EW")
 
-        whatsapp = tk.Label(table,text="Whatsapp: '1691234567'", fg='Black', bg='Grey',font=fonte_personalizada,border=0,borderwidth=0)
+        whatsapp = tk.Label(table,text="Whatsapp: '1691234567'", fg='Black', bg='#00FF00',font=fonte_personalizada,border=0,borderwidth=0)
         whatsapp.grid(row=4, column=0,columnspan=9,sticky="EW")
 
         info = tk.Label(table,text="Digite a Informação abaixo:", fg='Black', bg='white',font=fonte_personalizada)
@@ -335,7 +335,7 @@ try:
         dado.grid(row=6,column=0,columnspan=9,sticky="NSWE")
 
 #--------------------------------------------------------------------------------------------------
-        infoT = tk.Label(table,text="Digite o tamanho do QR Code abaixo:", fg='Black', bg='white',font=fonte_personalizada)
+        infoT = tk.Label(table,text="Digite o tamanho do QR Code Abaixo (Opicional):", fg='Black', bg='white',font=fonte_personalizada)
         infoT.grid(row=7, column=0,columnspan=9,sticky="WE")
 
         dadoT = tk.Entry(table)
@@ -347,9 +347,9 @@ try:
         
 
         coluna = tk.Label(table,text="", fg='Black', bg='Black',font=fonte_personalizada,height=35, width=1)
-        coluna.grid(row=2, column=43,rowspan=15,sticky="NSEW")
+        coluna.grid(row=2, column=39,rowspan=15,sticky="NSEW")
                 
-        gerar = tk.Button(table,text="GERAR QR CODE", command=criaLink,font=fonte_personalizada, fg='Black', bg='white')
+        gerar = tk.Button(table,text="GERAR QR CODE", command=criaLink,font=fonte_personalizada, fg='Black', bg='RED')
         gerar.grid(row=9, column=0, columnspan=9,sticky="NSEW")
 
         diretorio_atual = os.path.dirname(os.path.abspath(__file__))
@@ -367,7 +367,7 @@ try:
 
     else:
         fonte_personalizadaT = ("Arial", int(0.035 * altura))
-        fonte_personalizada = ("Arial", int(0.015 * altura))
+        fonte_personalizada = ("Arial", int(0.015 * altura),'bold')
         fonte_personalizadaI = ("Arial", int(0.080 * altura))
 
         frame = tk.Frame(janela)
@@ -385,7 +385,7 @@ try:
         linha = tk.Label(table,text="", fg='Black', bg='purple',font=fonte_personalizada,width = 180)
         linha.grid(row=0, column=0,columnspan=75,sticky="NWE")
 
-        formatos = tk.Label(table,text="FORMATOS ABAIXO", fg='Black', bg='Green',font=fonte_personalizada,width =40)
+        formatos = tk.Label(table,text="FORMATOS ABAIXO", fg='Black', bg='#00FF00',font=fonte_personalizada,width =40)
         formatos.grid(row=1, column=0,columnspan=9,sticky="WE")
 
         coluna = tk.Label(table,text="", fg='Black', bg='black',font=fonte_personalizada,height=30)
@@ -394,16 +394,16 @@ try:
         qrCode = tk.Label(table,text="    QR Code                                      ", bg='Black', fg='white',font=fonte_personalizada,width = 60)
         qrCode.grid(row=1, column=9,columnspan=100,sticky="WE")
 
-        lk = tk.Label(table,text="                         Link....: 'https://www.exemplo.com.br/paginaInicial'", fg='Black', bg='Grey',font=fonte_personalizada,height=1,border=0,borderwidth=0)
+        lk = tk.Label(table,text="                         Link....: 'https://www.exemplo.com.br/paginaInicial'", fg='Black', bg='#00FF00',font=fonte_personalizada,height=1,border=0,borderwidth=0)
         lk.grid(row=2, column=0,columnspan=9,sticky="EW")
 
         img_label = tk.Label(table,width=18, height= 8, bg="white")
         img_label.grid(row=2, column=15, columnspan=35,rowspan=15, sticky="NSWE")
 
-        wifi = tk.Label(table,text="Wifi....: 'wifi:Nome,Senha'", fg='Black', bg='Grey',font=fonte_personalizada, height=1,border=0,borderwidth=0)
+        wifi = tk.Label(table,text="Wifi....: 'wifi:Nome,Senha'", fg='Black', bg='#00FF00',font=fonte_personalizada, height=1,border=0,borderwidth=0)
         wifi.grid(row=3, column=0,columnspan=9,sticky="EW")
 
-        whatsapp = tk.Label(table,text="Whatsapp: '1691234567'", fg='Black', bg='Grey',font=fonte_personalizada,border=0,borderwidth=0)
+        whatsapp = tk.Label(table,text="Whatsapp: '1691234567'", fg='Black', bg='#00FF00',font=fonte_personalizada,border=0,borderwidth=0)
         whatsapp.grid(row=4, column=0,columnspan=9,sticky="EW")
 
         info = tk.Label(table,text="Digite a Informação abaixo:", fg='Black', bg='white',font=fonte_personalizada)
@@ -414,7 +414,7 @@ try:
         dado.grid(row=6,column=0,columnspan=9,sticky="NSWE")
 
 #--------------------------------------------------------------------------------------------------
-        infoT = tk.Label(table,text="Digite o tamanho do QR Code abaixo:", fg='Black', bg='white',font=fonte_personalizada)
+        infoT = tk.Label(table,text="Digite o tamanho do QR Code Abaixo (Opicional):", fg='Black', bg='white',font=fonte_personalizada)
         infoT.grid(row=7, column=0,columnspan=9,sticky="WE")
 
         dadoT = tk.Entry(table)
