@@ -1,6 +1,7 @@
 import qrcode
 import os
 import customtkinter as ctk
+from customtkinter import filedialog
 from qrcode.image.styledpil import StyledPilImage
 from PIL import Image, ImageTk
 
@@ -75,57 +76,6 @@ try:
             link = "https://wa.me/55" + link
         return link
 
-
-    def setLogo(link):
-        """
-        Retorna o caminho para o logotipo associado a um link da web, se disponível.
-
-        Esta função verifica o link fornecido em relação a um dicionário de links conhecidos
-        e seus logotipos correspondentes. Se o link corresponder a um dos links conhecidos,
-        o caminho para o logotipo associado é retornado. Caso contrário, o caminho padrão
-        para um logotipo (no caso, "python_logo.png") é retornado.
-
-        Args:
-            link (str): O link da web a ser verificado em relação ao dicionário de links.
-
-        Returns:
-            str: O caminho para o logotipo associado ao link, ou o caminho padrão se o
-                link não corresponder a nenhum dos links conhecidos.
-
-        Parameters:
-            link (str): O link da web que será verificado.
-        """
-        pastaAtual = os.path.dirname(os.path.abspath(__file__))
-        pastaLogos = os.path.join(pastaAtual, "logos")
-
-        pastaLogoPadrao = os.path.join(pastaLogos, "python_logo.png")
-        logoP = pastaLogoPadrao
-
-        logos = {
-            'tiktok.com': 'tiktok_logo.png',
-            'instagram.com': 'instagram_logo.png',
-            'whatsapp.com': 'whatsapp_logo.png',
-            'wa.me': 'whatsapp_logo.png',
-            'youtube.com': 'youtube_logo.png',
-            'python': 'python_logo.png',
-            'spotify.com': 'spotify_logo.png',
-            'messenger.com': 'messenger_logo.png',
-            'WIFI:T': 'wifi_logo.png',
-            'youtu.be': 'youtube_logo.png',
-            'facebook.com': 'facebook_logo.png',
-            'fb.watch': 'facebook_logo.png',
-            'linkedin.com': 'linkedin_logo.png',
-            'google.com': 'google_logo.png'
-        }
-
-        for site, logo in logos.items():
-            if site in link:
-                logoP = os.path.join(pastaLogos, logo)
-                break
-
-        return logoP
-
-
     def atualiza_imagem(nomeArquivo):
         """
         Atualiza um rótulo de imagem com a imagem carregada a partir de um arquivo.
@@ -141,6 +91,27 @@ try:
         QRCodeImg_Lbl.configure(image=photo)
         QRCodeImg_Lbl.image = photo 
 
+        
+    logo = ""
+
+    def escolherLogo():
+        """
+        Abre uma janela de seleção de arquivo para escolher um logotipo em formato PNG ou JPG.
+
+        Esta função permite ao usuário selecionar um arquivo de imagem no formato PNG ou JPG
+        que será utilizado como logotipo no código QR gerado.
+
+        Args:
+            None
+
+        Retorna:
+            None
+        """
+        global logo
+        logo = filedialog.askopenfilename(initialdir="/Desktop",title="Selecione o arquivo", filetypes=(("Arquivos PNG","*.png"),("Arquivos JPG","*.JPG")))
+
+
+    
 
     def criaLink():
         """
@@ -150,11 +121,13 @@ try:
         1. Obtém um link a partir de um campo de entrada (widget Entry).
         2. Limpa o campo de entrada.
         3. Verifica e ajusta o formato do link.
-        4. Define uma imagem de logotipo para o código QR.
+        4. Define uma imagem de logotipo para o código QR utilizando a função 'escolherLogo'.
         5. Cria um objeto QR Code com o link.
         6. Gera uma imagem do código QR com um logotipo embutido.
         7. Salva a imagem como 'qrcode_logo.png'.
         8. Atualiza um rótulo de imagem com a nova imagem gerada.
+
+        A função 'escolherLogo' é utilizada para selecionar o logotipo a ser incorporado no código QR.
 
         Args:
             None
@@ -162,6 +135,8 @@ try:
         Retorna:
             None
         """
+
+        global Logo
         link = dado.get()
         tamanho = dadoT.get()
         if not tamanho:
@@ -172,19 +147,23 @@ try:
         dado.delete(0, 'end')
         link = verificaLinkC(link)
         link = verificaLinkW(link)
-        logo = setLogo(link)
 
-        qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H, box_size = int(tamanho))
-        qr.add_data(link)
 
-        imagem = qr.make_image(
-            image_factory=StyledPilImage,
-            embeded_image_path=logo,
-        )
-        
-        imagem.save("qrcode_logo.png")
-        
-        atualiza_imagem("qrcode_logo.png")
+        if logo == "":
+            qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=int(tamanho))
+            qr.add_data(link)
+            imagem = qr.make_image()
+        else:
+            qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H)
+            qr.add_data(link)
+            imagem = qr.make_image(
+                image_factory=StyledPilImage,
+                embeded_image_path=logo,
+            )
+
+        imagem.save("qrcode.png")
+        atualiza_imagem("qrcode.png")
+
 
 
 except Exception as e:
@@ -264,15 +243,19 @@ try:
     diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 
 
-    x = 'exemplos19201080.png' if altura >= 1080 else 'exemplos1280720.png'
+    x = '19201080.png' if altura >= 1080 else '1280720.png'
 
     caminho_imagemStatica = os.path.join(diretorio_atual, 'logos',x)
 
     imagem = Image.open(caminho_imagemStatica)
     imagem = ImageTk.PhotoImage(imagem)
 
-    imagemS = ctk.CTkLabel(imagemS_frame,text="", image=imagem)
-    imagemS.pack(padx=10, pady=10, expand=True)
+    #imagemS = ctk.CTkLabel(imagemS_frame,text="", image=imagem)
+    #imagemS.pack(padx=10, pady=10, expand=True)
+
+    escolherLogo_Btn = ctk.CTkButton(imagemS_frame,text="", image=imagem, command=escolherLogo,font=fonte_personalizada,fg_color="#0074D9",text_color="black",hover_color="#00FFFF")
+    escolherLogo_Btn.pack(padx=10, pady = (10 if altura >= 1080 else 5), expand=True, fill="x")
+
 
     #Direita-----------------------------------------------------------------------------------------------------------------------------------------
     frameDireita = ctk.CTkFrame(janela, width=largura-(largura*0.52), height=(altura-(altura*0.15)if altura == 1080 else altura-(altura*0.16)))
