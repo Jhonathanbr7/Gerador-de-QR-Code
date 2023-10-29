@@ -1,0 +1,17 @@
+Escrever a informação em um dos formatos pré-definidos, e sempre escrever apenas oque está entre '' por exemplo no campo 
+formatos está escrito: wifi='wifi:Nomewifi,Senhawifi', link='https://exemplo.com.br/pagina',whatsapp'16991234567',se 
+o nome e a senha do wifi forem respectivamente joao e 12345678, no campo digite a informação deverá ser digitado da 
+seguinte forma:
+
+wifi:joao,12345678
+
+se o número do contato for (11) 99123-4567, no campo digite a informação deverá ser digitado da seguinte forma:
+
+11991234567
+
+já o link não tem segredo, é necessário apenas colar no campo informação da seguinte forma:
+
+https://exemplo.com.br/pagina
+
+Após isso você conseguirá gerar um qrCode sem logo, ou escolha a logo antes de clicar no botão
+gerar QR Code.
