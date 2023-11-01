@@ -236,7 +236,7 @@ try:
     formatosT_Lbl.pack(pady=10, expand=True)
 
     formatos_Lbl = ctk.CTkLabel(formatos_frame, font=fonte_personalizada,
-                                text="Link...........: 'https://www.exemplo.com.br/paginaInicial'\n\nWifi............: 'wifi:Nome,Senha'\n\nWhatsapp: '1691234567'")
+                                text="Link...........: 'https://www.exemplo.com.br/paginaInicial'\n\nWifi............: 'wifi:Nome,Senha'\n\nWhatsApp: '1691234567'")
     formatos_Lbl.pack(pady=10,side="left", expand=True)
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     informacoes_frame = ctk.CTkFrame(frameEsquerda,fg_color="#333333")
@@ -274,7 +274,7 @@ try:
     escolherLogo_Btn = ctk.CTkButton(logo_frame,text="Clique aqui para selecionar a sua logo" , command=escolherLogo,height=(altura-(altura*0.93)if altura >= 1080 else altura-(altura*0.96)),font=fonte_personalizada,fg_color="#0074D9",text_color="black",hover_color="#00FFFF")
     escolherLogo_Btn.pack(padx=10, pady=(10 if altura >= 1080 else 5), expand=True, fill="x")
     
-    resetLogo_Btn = ctk.CTkButton(logo_frame, text="Apagar logo selecionda", command=resetLogo, height=(altura-(altura*0.93)if altura >= 1080 else altura-(altura*0.96)), font=fonte_personalizada, fg_color="#0074D9", text_color="black", hover_color="#00FFFF")
+    resetLogo_Btn = ctk.CTkButton(logo_frame, text="Apagar logo selecionada", command=resetLogo, height=(altura-(altura*0.93)if altura >= 1080 else altura-(altura*0.96)), font=fonte_personalizada, fg_color="#0074D9", text_color="black", hover_color="#00FFFF")
     resetLogo_Btn.pack(padx=10, pady=(10 if altura >= 1080 else 5), expand=True, fill="x")
 
     
