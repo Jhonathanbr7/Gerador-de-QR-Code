@@ -111,7 +111,18 @@ try:
         logo = filedialog.askopenfilename(initialdir="/Desktop",title="Selecione o arquivo", filetypes=(("Arquivos PNG","*.png"),("Arquivos JPG","*.JPG")))
 
 
-    
+    def resetLogo():
+        """
+        Esta função tira o valor da variável global "logo".
+
+        Args:
+            None
+
+        Retorna:
+            None
+        """
+        global logo
+        logo = ""
 
     def criaLink():
         """
@@ -163,6 +174,17 @@ try:
 
         imagem.save("qrcode.png")
         atualiza_imagem("qrcode.png")
+    
+
+    def salvarQRCode():
+        file_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])
+        if file_path:
+            try:
+                os.replace("qrcode.png", file_path)
+            except Exception as e:
+                print("Erro ao salvar o arquivo:", e)
+
+    
 
 
 
@@ -223,7 +245,7 @@ try:
     info_Lbl = ctk.CTkLabel(informacoes_frame, font=fonte_personalizada, text="Digite a Informação abaixo:",anchor="center")
     info_Lbl.pack(pady = (10 if altura >= 1080 else 5),expand=True)
 
-    dado = ctk.CTkEntry(informacoes_frame,font=fonte_personalizada,fg_color="#0074D9", justify="center",text_color="black",placeholder_text="Link, Wifi ou WhatsApp",placeholder_text_color="black",border_color="#333333")
+    dado = ctk.CTkEntry(informacoes_frame,font=fonte_personalizada,fg_color="#0074D9",height=(altura-(altura*0.95)if altura >= 1080 else altura-(altura*0.96)), justify="center",text_color="black",placeholder_text="Link, Wifi ou WhatsApp",placeholder_text_color="black",border_color="#333333")
     dado.pack(padx=10, pady = (10 if altura >= 1080 else 5), expand=True, fill="x")
 
     infoT_Lbl = ctk.CTkLabel(informacoes_frame, font=fonte_personalizada,text="Digite o tamanho do QR Code abaixo de 0 a 25 (Opcional):",anchor="center")
@@ -235,28 +257,27 @@ try:
     gerarQRCode_Btn = ctk.CTkButton(informacoes_frame,text="Clique aqui para gerar o QR Code",height=(altura-(altura*0.95)if altura >= 1080 else altura-(altura*0.96)), command=criaLink,font=fonte_personalizada,fg_color="#0074D9",text_color="black",hover_color="#00FFFF")
     gerarQRCode_Btn.pack(padx=10, pady = (10 if altura >= 1080 else 5), expand=True, fill="x")
 
+    salvarQRCode_Btn = ctk.CTkButton(informacoes_frame, text="Salvar QR Code", command=salvarQRCode, height=(altura-(altura*0.95)if altura >= 1080 else altura-(altura*0.96)), font=fonte_personalizada, fg_color="#0074D9", text_color="black", hover_color="#00FFFF")
+    salvarQRCode_Btn.pack(padx=10, pady=(10 if altura >= 1080 else 5), expand=True, fill="x")
+
     #-------------------------------------------------------------------------------------------------------------------------------------------------
 
-    imagemS_frame=ctk.CTkFrame(frameEsquerda,fg_color="#333333")
-    imagemS_frame.pack(padx = 10 ,pady = 10, fill="both")
+    logo_frame=ctk.CTkFrame(frameEsquerda,fg_color="#333333")
+    logo_frame.pack(padx = 10 ,pady = 10, expand=True,fill="both")
 
     diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 
-
-    x = '19201080.png' if altura >= 1080 else '1280720.png'
-
-    caminho_imagemStatica = os.path.join(diretorio_atual, 'logos',x)
-
-    imagem = Image.open(caminho_imagemStatica)
-    imagem = ImageTk.PhotoImage(imagem)
-
-    #imagemS = ctk.CTkLabel(imagemS_frame,text="", image=imagem)
-    #imagemS.pack(padx=10, pady=10, expand=True)
-
-    escolherLogo_Btn = ctk.CTkButton(imagemS_frame,text="", image=imagem, command=escolherLogo,font=fonte_personalizada,fg_color="#0074D9",text_color="black",hover_color="#00FFFF")
-    escolherLogo_Btn.pack(padx=10, pady = (10 if altura >= 1080 else 5), expand=True, fill="x")
+    logo_Lbl = ctk.CTkLabel(logo_frame, font=fonte_personalizada,text="Configurações de Logo: ",anchor="center")
+    logo_Lbl.pack(pady = (10 if altura >= 1080 else 5),expand=True)
 
 
+    escolherLogo_Btn = ctk.CTkButton(logo_frame,text="Clique aqui para selecionar a sua logo" , command=escolherLogo,height=(altura-(altura*0.93)if altura >= 1080 else altura-(altura*0.96)),font=fonte_personalizada,fg_color="#0074D9",text_color="black",hover_color="#00FFFF")
+    escolherLogo_Btn.pack(padx=10, pady=(10 if altura >= 1080 else 5), expand=True, fill="x")
+    
+    resetLogo_Btn = ctk.CTkButton(logo_frame, text="Apagar logo selecionda", command=resetLogo, height=(altura-(altura*0.93)if altura >= 1080 else altura-(altura*0.96)), font=fonte_personalizada, fg_color="#0074D9", text_color="black", hover_color="#00FFFF")
+    resetLogo_Btn.pack(padx=10, pady=(10 if altura >= 1080 else 5), expand=True, fill="x")
+
+    
     #Direita-----------------------------------------------------------------------------------------------------------------------------------------
     frameDireita = ctk.CTkFrame(janela, width=largura-(largura*0.52), height=(altura-(altura*0.15)if altura == 1080 else altura-(altura*0.16)))
     frameDireita.place(relx = 0.51, rely= (0.08 if altura >= 1080 else 0.06))

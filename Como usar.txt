@@ -15,3 +15,6 @@ https://exemplo.com.br/pagina
 
 Após isso você conseguirá gerar um qrCode sem logo, ou escolha a logo antes de clicar no botão
 gerar QR Code.
+
+
+Caso deseje voltar a gerar QR Codes sem logo, clique no botão "Apagar logo selecionada".
