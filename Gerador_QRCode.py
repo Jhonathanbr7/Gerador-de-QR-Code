@@ -165,7 +165,7 @@ try:
             qr.add_data(link)
             imagem = qr.make_image()
         else:
-            qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H)
+            qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=int(tamanho))
             qr.add_data(link)
             imagem = qr.make_image(
                 image_factory=StyledPilImage,
